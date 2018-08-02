@@ -15,6 +15,9 @@ import { HeaderComponent } from './header/header.component';
     MatDialogModule,
     MatToolbarModule
   ],
+  exports: [
+    HeaderComponent
+  ],
   declarations: [HeaderComponent]
 })
 export class CoreModule {
