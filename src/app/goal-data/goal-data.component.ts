@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalDataComponent implements OnInit {
 
+  date;
+
   constructor() { }
 
   ngOnInit() {
+    this.date = new Date();
   }
 
 }
