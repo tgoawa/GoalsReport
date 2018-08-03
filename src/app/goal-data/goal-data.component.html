@@ -3,3 +3,11 @@
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
+<div *ngIf="goalReport">
+  <p>
+    Since {{goalReport.FromDate}}
+  </p>
+  <p>
+    {{goalReport.GoalCount}} Team Members have created goals.
+  </p>
+</div>
