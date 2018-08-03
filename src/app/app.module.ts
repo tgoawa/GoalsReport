@@ -9,6 +9,7 @@ import { GoalDataComponent } from './goal-data/goal-data.component';
 import { OneToOneDataComponent } from './one-to-one-data/one-to-one-data.component';
 import { HoursDataComponent } from './hours-data/hours-data.component';
 import { HoursSurveyDataComponent } from './hours-survey-data/hours-survey-data.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HoursSurveyDataComponent } from './hours-survey-data/hours-survey-data.
     GoalDataComponent,
     OneToOneDataComponent,
     HoursDataComponent,
-    HoursSurveyDataComponent
+    HoursSurveyDataComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
