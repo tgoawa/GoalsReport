@@ -20,7 +20,7 @@ export class DataService {
   }
 
   getOneToOneReportData(totalMonths: number) {
-    return this.http.get<OneToOneReport>(api + 'GetOneToOneCounts/' + totalMonths)
+    return this.http.get<OneToOneReport[]>(api + 'GetOneToOneCounts/' + totalMonths)
     .pipe(
       retry(3),
       catchError(this.handleError)

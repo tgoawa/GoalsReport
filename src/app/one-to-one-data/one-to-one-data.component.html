@@ -2,8 +2,21 @@
   <input type="number" matInput placeholder="Total amount of months previous" value="months">
 </mat-form-field>
 <div>
-
+  <ngx-charts-bar-vertical *ngIf="chartData"
+  [scheme]="colorScheme"
+  [results]="chartData"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel">
+</ngx-charts-bar-vertical>
 </div>
 <div>
-
+  <ngx-charts-pie-chart
+  [scheme]="colorScheme"
+  [results]="chartData">
+</ngx-charts-pie-chart>
 </div>
