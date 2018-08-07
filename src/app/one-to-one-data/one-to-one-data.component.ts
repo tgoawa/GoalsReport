@@ -12,23 +12,9 @@ import {
 })
 export class OneToOneDataComponent implements OnInit {
   oneToOneReportObject: OneToOneReport[];
-  chartData: ChartData[] = [];
+  chartData: ChartData[];
   months: number;
 
-  view: number[] = [700, 300];
-    // options
-    showXAxis = true;
-    showYAxis = true;
-    gradient = false;
-    showXAxisLabel = true;
-    xAxisLabel = 'Months';
-    showYAxisLabel = true;
-    yAxisLabel = 'Meetings';
-  colorScheme = {
-    domain: ['#007EBA', '#5FBB46', '#F7941E', '#7F3F98', '#00AFED', '#CBDB2A', '#FFC60B', '#ED0D6C']
-  };
-
-  autoScale = true;
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
@@ -36,16 +22,23 @@ export class OneToOneDataComponent implements OnInit {
     this.getOneToOneReportData(this.months);
   }
 
+  onMonthChange() {
+    console.log(this.months);
+    this.getOneToOneReportData(this.months);
+  }
+
   getOneToOneReportData(totalMonths: number) {
     this.dataService
       .getOneToOneReportData(totalMonths)
       .subscribe((data: OneToOneReport[]) => {
+        console.log(data);
         this.oneToOneReportObject = data;
         this.formatDataForGraph(this.oneToOneReportObject);
       });
   }
 
   private formatDataForGraph(reportObject: OneToOneReport[]) {
+    this.chartData = [];
     if (reportObject !== null) {
       for (let x = 0; x < reportObject.length; x++) {
         this.chartData.push(
@@ -55,7 +48,6 @@ export class OneToOneDataComponent implements OnInit {
           )
         );
       }
-      console.log(this.chartData);
     }
   }
 }

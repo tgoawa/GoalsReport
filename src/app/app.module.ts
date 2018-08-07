@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -17,6 +17,7 @@ import { OneToOneDataComponent } from './one-to-one-data/one-to-one-data.compone
 import { HoursDataComponent } from './hours-data/hours-data.component';
 import { HoursSurveyDataComponent } from './hours-survey-data/hours-survey-data.component';
 import { HomeComponent } from './home/home.component';
+import { BarChartComponent } from './one-to-one-data/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     OneToOneDataComponent,
     HoursDataComponent,
     HoursSurveyDataComponent,
-    HomeComponent
+    HomeComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { HomeComponent } from './home/home.component';
     CoreModule,
     FlexLayoutModule,
     FormsModule,
+    MatButtonModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,

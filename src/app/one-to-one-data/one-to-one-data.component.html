@@ -1,22 +1,23 @@
-<mat-form-field class="example-full-width">
-  <input type="number" matInput placeholder="Total amount of months previous" value="months">
-</mat-form-field>
 <div>
-  <ngx-charts-bar-vertical *ngIf="chartData"
-  [scheme]="colorScheme"
-  [results]="chartData"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel">
-</ngx-charts-bar-vertical>
+  <mat-form-field class="example-full-width">
+    <input type="number" matInput placeholder="Total amount of months previous" [(ngModel)]="months">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onMonthChange()">Update Search</button>
 </div>
 <div>
-  <ngx-charts-pie-chart
-  [scheme]="colorScheme"
-  [results]="chartData">
-</ngx-charts-pie-chart>
+  <app-bar-chart [data]="chartData" *ngIf="chartData?.length > 0"></app-bar-chart>
 </div>
+<!-- <div>
+  <ngx-charts-line-chart
+      [scheme]="colorScheme"
+      [results]="chartData"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [autoScale]="autoScale">
+    </ngx-charts-line-chart>
+</div> -->
