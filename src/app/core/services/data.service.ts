@@ -4,8 +4,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { GoalReport, OneToOneReport } from '../model/goal-report.model';
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
+import { environment } from '../../../environments/environment';
 
-const api = 'http://webservicesdev:1025/';
+const api = environment.envApi;
 @Injectable()
 export class DataService {
 
