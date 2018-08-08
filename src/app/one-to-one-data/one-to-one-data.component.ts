@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/services/data.service';
 import {
   OneToOneReport,
+  HoursChartData,
   ChartData,
 } from '../core/model/goal-report.model';
 
@@ -11,8 +12,8 @@ import {
   styleUrls: ['./one-to-one-data.component.css'],
 })
 export class OneToOneDataComponent implements OnInit {
-  oneToOneReportObject: OneToOneReport[];
-  chartData: ChartData[];
+  oneToOneReportObject: OneToOneReport;
+  chartData: HoursChartData[];
   months: number;
 
   constructor(private dataService: DataService) {}
@@ -30,24 +31,36 @@ export class OneToOneDataComponent implements OnInit {
   getOneToOneReportData(totalMonths: number) {
     this.dataService
       .getOneToOneReportData(totalMonths)
-      .subscribe((data: OneToOneReport[]) => {
-        console.log(data);
+      .subscribe((data: OneToOneReport) => {
         this.oneToOneReportObject = data;
         this.formatDataForGraph(this.oneToOneReportObject);
       });
   }
 
-  private formatDataForGraph(reportObject: OneToOneReport[]) {
+  private formatDataForGraph(reportObject: OneToOneReport) {
+    if (reportObject === null) {
+      return;
+    } else {
+      this.createChartDataObject(reportObject);
+    }
+  }
+
+  private createChartDataObject(reportObject: OneToOneReport) {
     this.chartData = [];
-    if (reportObject !== null) {
-      for (let x = 0; x < reportObject.length; x++) {
-        this.chartData.push(
-          new ChartData(
-            reportObject[x].MonthName,
-            reportObject[x].MeetingCount
-          )
-        );
-      }
+    this.chartData.push(new HoursChartData('Total Meetings Per Month'));
+    this.chartData.push(new HoursChartData('Distinct Meetings Per Month'));
+
+    this.chartData[0].series = [];
+    this.chartData[1].series = [];
+
+    for (let x = 0; x < reportObject.TotalMeetingsPerMonth.length; x++) {
+      // tslint:disable-next-line:max-line-length
+      this.chartData[0].series.push(new ChartData(reportObject.TotalMeetingsPerMonth[x].MonthName + ' ' + reportObject.TotalMeetingsPerMonth[x].Year, reportObject.TotalMeetingsPerMonth[x].MeetingCount));
+    }
+
+    for (let y = 0; y < reportObject.DistinctMeetingsPerMonth.length; y++) {
+      // tslint:disable-next-line:max-line-length
+      this.chartData[1].series.push(new ChartData(reportObject.DistinctMeetingsPerMonth[y].MonthName + ' ' + reportObject.DistinctMeetingsPerMonth[y].Year, reportObject.DistinctMeetingsPerMonth[y].MeetingCount));
     }
   }
 }

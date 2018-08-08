@@ -18,6 +18,7 @@ import { HoursDataComponent } from './hours-data/hours-data.component';
 import { HoursSurveyDataComponent } from './hours-survey-data/hours-survey-data.component';
 import { HomeComponent } from './home/home.component';
 import { BarChartComponent } from './one-to-one-data/bar-chart/bar-chart.component';
+import { LineChartComponent } from './one-to-one-data/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BarChartComponent } from './one-to-one-data/bar-chart/bar-chart.compone
     HoursDataComponent,
     HoursSurveyDataComponent,
     HomeComponent,
-    BarChartComponent
+    BarChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,

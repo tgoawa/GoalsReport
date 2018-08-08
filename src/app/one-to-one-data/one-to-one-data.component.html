@@ -1,25 +1,18 @@
 <div class="mat-typography" fxLayout="column">
-    <section fxLayout="row" fxLayoutAlign="start start">
-        <mat-form-field class="example-full-width" fxFlex="10" fxLayoutGap="10">
-          <input type="number" matInput placeholder="Total amount of months previous" [(ngModel)]="months">
-        </mat-form-field>
-        <button fxFlex="10" mat-raised-button color="primary" (click)="onMonthChange()">Update Search</button>
-      </section>
-      <section fxLayout="row" fxLayoutAlign="start center">
-        <app-bar-chart fxFlex="45" [data]="chartData" *ngIf="chartData?.length > 0"></app-bar-chart>
-      </section>
-      <!-- <div>
-        <ngx-charts-line-chart
-            [scheme]="colorScheme"
-            [results]="chartData"
-            [gradient]="gradient"
-            [xAxis]="showXAxis"
-            [yAxis]="showYAxis"
-            [showXAxisLabel]="showXAxisLabel"
-            [showYAxisLabel]="showYAxisLabel"
-            [xAxisLabel]="xAxisLabel"
-            [yAxisLabel]="yAxisLabel"
-            [autoScale]="autoScale">
-          </ngx-charts-line-chart>
-      </div> -->
+  <div>
+    <h1 class="text-center">Amount of One to One meetings created per month</h1>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start start">
+    <mat-form-field class="example-full-width" fxFlex="10" fxLayoutGap="10">
+      <input type="number" matInput placeholder="Total amount of months previous" [(ngModel)]="months">
+    </mat-form-field>
+    <button fxFlex="10" mat-raised-button color="primary" (click)="onMonthChange()">Update Search</button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxFlex="50">
+    <app-bar-chart fxFlex="80" [data]="chartData" *ngIf="chartData?.length > 0"></app-bar-chart>
+
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxFlex="50">
+      <app-line-chart fxFlex="80" [data]="chartData" *ngIf="chartData?.length > 0"></app-line-chart>
+  </div>
 </div>

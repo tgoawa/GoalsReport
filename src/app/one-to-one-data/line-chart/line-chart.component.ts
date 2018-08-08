@@ -2,11 +2,11 @@ import { Component, OnChanges, Input } from '@angular/core';
 import { ChartData } from 'src/app/core/model/goal-report.model';
 
 @Component({
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css'],
+  selector: 'app-line-chart',
+  templateUrl: './line-chart.component.html',
+  styleUrls: ['./line-chart.component.css']
 })
-export class BarChartComponent implements OnChanges {
+export class LineChartComponent implements OnChanges {
   @Input() data: ChartData[];
   chartData: ChartData[];
   // options
@@ -18,21 +18,24 @@ export class BarChartComponent implements OnChanges {
   xAxisLabel = 'Months';
   showYAxisLabel = true;
   yAxisLabel = 'Meetings';
+
   colorScheme = {
-    domain: [
-      '#007EBA',
-      '#5FBB46',
-      '#F7941E',
-      '#7F3F98',
-      '#00AFED',
-      '#CBDB2A',
-      '#FFC60B',
-      '#ED0D6C',
-    ],
+    domain: ['#007EBA',
+    '#5FBB46',
+    '#F7941E',
+    '#7F3F98',
+    '#00AFED',
+    '#CBDB2A',
+    '#FFC60B',
+    '#ED0D6C',]
   };
-  constructor() {}
+
+  // line, area
+  autoScale = true;
+  constructor() { }
 
   ngOnChanges() {
     this.chartData = this.data;
   }
+
 }
