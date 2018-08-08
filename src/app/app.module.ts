@@ -19,6 +19,7 @@ import { HoursSurveyDataComponent } from './hours-survey-data/hours-survey-data.
 import { HomeComponent } from './home/home.component';
 import { BarChartComponent } from './one-to-one-data/bar-chart/bar-chart.component';
 import { LineChartComponent } from './one-to-one-data/line-chart/line-chart.component';
+import { LocationStrategy, HashLocationStrategy } from '../../node_modules/@angular/common';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { LineChartComponent } from './one-to-one-data/line-chart/line-chart.comp
     AppRoutingModule
   ],
   providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
