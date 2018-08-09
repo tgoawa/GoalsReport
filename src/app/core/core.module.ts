@@ -13,6 +13,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HeaderComponent } from './header/header.component';
 import { DataService } from './services/data.service';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   imports: [
@@ -24,8 +25,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     MatToolbarModule,
     NgxChartsModule,
   ],
-  exports: [HeaderComponent, PieChartComponent],
-  declarations: [HeaderComponent, PieChartComponent],
+  exports: [HeaderComponent, PieChartComponent, BarChartComponent],
+  declarations: [HeaderComponent, PieChartComponent, BarChartComponent],
   providers: [DataService],
 })
 export class CoreModule {
