@@ -47,17 +47,21 @@ export class HoursSurveyDataComponent implements OnInit {
     if (dataArray === null) {
       return;
     } else {
+      this.assuranceChart = [];
+      this.accountingChart = [];
+      this.specialtyServiceChart = [];
+      this.taxChart = [];
       for (let x = 0; x < dataArray.length; x++) {
-        if (dataArray[x].ServiceLine = 'Assurance') {
+        if (dataArray[x].ServiceLine === 'Assurance') {
           this.assuranceChart.push(new ChartData(dataArray[x].SubGroup, dataArray[x].Value));
         }
-        if (dataArray[x].ServiceLine = 'Accounting') {
+        if (dataArray[x].ServiceLine === 'Accounting') {
           this.accountingChart.push(new ChartData(dataArray[x].SubGroup, dataArray[x].Value));
         }
-        if (dataArray[x].ServiceLine = 'Specialty Services') {
+        if (dataArray[x].ServiceLine === 'Specialty Services') {
           this.specialtyServiceChart.push(new ChartData(dataArray[x].SubGroup, dataArray[x].Value));
         }
-        if (dataArray[x].ServiceLine = 'Tax') {
+        if (dataArray[x].ServiceLine === 'Tax') {
           this.taxChart.push(new ChartData(dataArray[x].SubGroup, dataArray[x].Value));
         }
       }

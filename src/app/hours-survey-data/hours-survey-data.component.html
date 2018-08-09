@@ -36,4 +36,43 @@
       <app-pie-chart fxFlex="50" [data]="serviceLineAlignment" *ngIf="serviceLineAlignment"></app-pie-chart>
     </div>
   </section>
+  <section>
+    <h2>Subgroup Expertise</h2>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Assurance</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="assuranceChart" *ngIf="assuranceChart"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="assuranceChart" *ngIf="assuranceChart"></app-pie-chart>
+    </div>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Accounting</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="accountingChart" *ngIf="accountingChart"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="accountingChart" *ngIf="accountingChart"></app-pie-chart>
+    </div>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Specialty Services</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="specialtyServiceChart" *ngIf="specialtyServiceChart"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="specialtyServiceChart" *ngIf="specialtyServiceChart"></app-pie-chart>
+    </div>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Taxes</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="taxChart" *ngIf="taxChart"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="taxChart" *ngIf="taxChart"></app-pie-chart>
+    </div>
+  </section>
 </div>
