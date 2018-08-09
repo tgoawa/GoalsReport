@@ -27,7 +27,7 @@ export class LineChartComponent implements OnChanges {
     '#00AFED',
     '#CBDB2A',
     '#FFC60B',
-    '#ED0D6C',]
+    '#ED0D6C', ]
   };
 
   // line, area

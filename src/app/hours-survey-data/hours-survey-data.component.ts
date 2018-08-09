@@ -12,6 +12,7 @@ export class HoursSurveyDataComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.getHoursSurveyData();
   }
 
   getHoursSurveyData() {

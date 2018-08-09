@@ -4,12 +4,15 @@ import { CommonModule } from '@angular/common';
 import { throwIfAlreadyLoaded } from './module-import.guard';
 import { RouterModule } from '@angular/router';
 
-import { MatButtonModule,
+import {
+  MatButtonModule,
   MatDialogModule,
-  MatToolbarModule } from '@angular/material';
-
+  MatToolbarModule,
+} from '@angular/material';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HeaderComponent } from './header/header.component';
 import { DataService } from './services/data.service';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 @NgModule({
   imports: [
@@ -18,16 +21,19 @@ import { DataService } from './services/data.service';
     RouterModule,
     MatButtonModule,
     MatDialogModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgxChartsModule,
   ],
-  exports: [
-    HeaderComponent
-  ],
-  declarations: [HeaderComponent],
-  providers:[DataService]
+  exports: [HeaderComponent],
+  declarations: [HeaderComponent, PieChartComponent],
+  providers: [DataService],
 })
 export class CoreModule {
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+  constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: CoreModule
+  ) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
   }
 }
