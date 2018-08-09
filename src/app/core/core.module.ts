@@ -24,7 +24,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     MatToolbarModule,
     NgxChartsModule,
   ],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, PieChartComponent],
   declarations: [HeaderComponent, PieChartComponent],
   providers: [DataService],
 })

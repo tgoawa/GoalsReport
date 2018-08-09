@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/services/data.service';
-import { SurveyDataObject } from '../core/model/goal-report.model';
+import { SurveyDataObject, ChartData } from '../core/model/goal-report.model';
 
 @Component({
   selector: 'app-hours-survey-data',
@@ -9,6 +9,7 @@ import { SurveyDataObject } from '../core/model/goal-report.model';
 })
 export class HoursSurveyDataComponent implements OnInit {
   hoursSurveyObject: SurveyDataObject;
+  pieChartData: ChartData[];
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -17,7 +18,16 @@ export class HoursSurveyDataComponent implements OnInit {
 
   getHoursSurveyData() {
     this.dataService.getSurveyData()
-      .subscribe((data: SurveyDataObject) => this.hoursSurveyObject = { ...data });
+      .subscribe((data: SurveyDataObject) => {
+        this.hoursSurveyObject = data;
+        this.formatePieChartData(this.hoursSurveyObject);
+      });
+  }
+
+  private formatePieChartData(surveyDataObject: SurveyDataObject) {
+    this.pieChartData = [];
+    this.pieChartData.push(new ChartData('No', surveyDataObject.ExpertiseNoCount));
+    this.pieChartData.push(new ChartData('Yes', surveyDataObject.ExpertiseYesCount));
   }
 
 }

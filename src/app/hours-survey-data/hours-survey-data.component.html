@@ -3,9 +3,10 @@
   <h1>Hours Survey Report</h1>
 </section>
 <section>
-  <h2>A total of {{hoursSurveyObject.SurveyCount}} surveys have been completed</h2>
+  <h2>A total of {{hoursSurveyObject?.SurveyCount}} surveys have been completed</h2>
 </section>
 <section>
-
+  <h3 class="text-center">I am spending sufficient time in my chosen industry(s) to develop expertise</h3>
+  <app-pie-chart [data]="pieChartData" *ngIf="pieChartData"></app-pie-chart>
 </section>
 </div>
