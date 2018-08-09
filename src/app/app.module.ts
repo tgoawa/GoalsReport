@@ -17,7 +17,7 @@ import { OneToOneDataComponent } from './one-to-one-data/one-to-one-data.compone
 import { HoursDataComponent } from './hours-data/hours-data.component';
 import { HoursSurveyDataComponent } from './hours-survey-data/hours-survey-data.component';
 import { HomeComponent } from './home/home.component';
-import { BarChartComponent } from './one-to-one-data/bar-chart/bar-chart.component';
+import { GroupedBarChartComponent } from './one-to-one-data/bar-chart/bar-chart.component';
 import { LineChartComponent } from './one-to-one-data/line-chart/line-chart.component';
 import { LocationStrategy, HashLocationStrategy } from '../../node_modules/@angular/common';
 
@@ -29,7 +29,7 @@ import { LocationStrategy, HashLocationStrategy } from '../../node_modules/@angu
     HoursDataComponent,
     HoursSurveyDataComponent,
     HomeComponent,
-    BarChartComponent,
+    GroupedBarChartComponent,
     LineChartComponent
   ],
   imports: [

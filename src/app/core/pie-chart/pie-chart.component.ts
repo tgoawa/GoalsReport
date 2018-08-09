@@ -8,8 +8,9 @@ import { ChartData } from 'src/app/core/model/goal-report.model';
 })
 export class PieChartComponent implements OnInit {
   @Input() data: ChartData;
+  view: any[] = [700, 400];
   // options
-  showLegend = true;
+  showLegend = false;
 
   colorScheme = {
     domain: ['#007EBA',

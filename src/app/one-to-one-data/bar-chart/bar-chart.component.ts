@@ -2,11 +2,11 @@ import { Component, OnChanges, Input } from '@angular/core';
 import { ChartData } from 'src/app/core/model/goal-report.model';
 
 @Component({
-  selector: 'app-bar-chart',
+  selector: 'app-grouped-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css'],
 })
-export class BarChartComponent implements OnChanges {
+export class GroupedBarChartComponent implements OnChanges {
   @Input() data: ChartData[];
   chartData: ChartData[];
   // options

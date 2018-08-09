@@ -38,4 +38,9 @@ export interface SurveyDataObject {
   SurveyCount: number;
   ExpertiseYesCount: number;
   ExpertiseNoCount: number;
+  ITSpentTime: ChartData[];
+  ITLearn: ChartData[];
+  ServiceLineAlignment: ChartData[];
+  OpportunityAdvisories: ChartData[];
+  SubGroupExpertises: any[];
 }

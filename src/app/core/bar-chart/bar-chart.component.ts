@@ -8,12 +8,13 @@ import { ChartData } from 'src/app/core/model/goal-report.model';
 })
 export class BarChartComponent implements OnInit {
   @Input() data: ChartData[];
-  chartData: ChartData[];
+
+  view: any[] = [700, 400];
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
+  showLegend = false;
   showXAxisLabel = true;
   xAxisLabel = 'Months';
   showYAxisLabel = true;

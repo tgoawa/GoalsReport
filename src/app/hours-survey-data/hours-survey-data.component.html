@@ -1,12 +1,39 @@
-<div class="mat-typography" fxLayout="column" fxLayoutAlign="space-around start">
-<section class="text-center">
-  <h1>Hours Survey Report</h1>
-</section>
-<section>
-  <h2>A total of {{hoursSurveyObject?.SurveyCount}} surveys have been completed</h2>
-</section>
-<section>
-  <h3 class="text-center">I am spending sufficient time in my chosen industry(s) to develop expertise</h3>
-  <app-pie-chart [data]="pieChartData" *ngIf="pieChartData"></app-pie-chart>
-</section>
+<div class="mat-typography" fxLayout="column" fxLayoutAlign="space-around none">
+  <section class="text-center">
+    <h1>Hours Survey Report</h1>
+  </section>
+  <section>
+    <h2>A total of {{hoursSurveyObject?.SurveyCount}} surveys have been completed</h2>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <h3>I am spending sufficient time in my chosen industry(s) to develop expertise</h3>
+    <app-pie-chart [data]="timeInIndustryChart" *ngIf="timeInIndustryChart"></app-pie-chart>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Industries I spend the most time in</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="industrySpentTimeChart" *ngIf="industrySpentTimeChart"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="industrySpentTimeChart" *ngIf="industrySpentTimeChart"></app-pie-chart>
+    </div>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Industries I would like to learn about</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="industryLearnChart" *ngIf="industryLearnChart"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="industryLearnChart" *ngIf="industryLearnChart"></app-pie-chart>
+    </div>
+  </section>
+  <section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Service line I mostly align with</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="serviceLineAlignment" *ngIf="serviceLineAlignment"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="serviceLineAlignment" *ngIf="serviceLineAlignment"></app-pie-chart>
+    </div>
+  </section>
 </div>

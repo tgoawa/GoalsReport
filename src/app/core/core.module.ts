@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { DataService } from './services/data.service';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { FormatHelper } from './helper/formatHelper';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
   ],
   exports: [HeaderComponent, PieChartComponent, BarChartComponent],
   declarations: [HeaderComponent, PieChartComponent, BarChartComponent],
-  providers: [DataService],
+  providers: [DataService, FormatHelper],
 })
 export class CoreModule {
   constructor(
