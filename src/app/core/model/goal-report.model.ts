@@ -33,3 +33,9 @@ export class HoursChartData {
     this.name = name;
   }
 }
+
+export interface SurveyDataObject {
+  SurveyCount: number;
+  ExpertiseYesCount: number;
+  ExpertiseNoCount: number;
+}

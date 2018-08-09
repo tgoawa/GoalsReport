@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { catchError, retry } from 'rxjs/operators';
-import { GoalReport, OneToOneReport } from '../model/goal-report.model';
+import { GoalReport, OneToOneReport, SurveyDataObject } from '../model/goal-report.model';
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
 
@@ -22,6 +22,14 @@ export class DataService {
 
   getOneToOneReportData(totalMonths: number) {
     return this.http.get<OneToOneReport>(api + 'GetOneToOneCounts/' + totalMonths)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  getSurveyData() {
+    return this.http.get<SurveyDataObject>(api + 'GetSurveyData')
     .pipe(
       retry(3),
       catchError(this.handleError)
