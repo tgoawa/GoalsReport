@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartData } from '../../core/model/goal-report.model';
+import { ChartData, SurveyDataObject } from '../../core/model/goal-report.model';
+import { DataService } from 'src/app/core/services/data.service';
+import { FormatHelper } from 'src/app/core/helper/formatHelper';
 
 @Component({
   selector: 'app-opportunity-advisories',
@@ -8,9 +10,14 @@ import { ChartData } from '../../core/model/goal-report.model';
 })
 export class OpportunityAdvisoriesComponent implements OnInit {
   opportunityAdvisories: ChartData[];
-  constructor() { }
+
+constructor(private dataService: DataService, private formatHelper: FormatHelper) { }
 
   ngOnInit() {
+    this.dataService.getSurveyData()
+      .subscribe((data: SurveyDataObject) => {
+        this.opportunityAdvisories = this.formatHelper.formatSimpleChartData(data.OpportunityAdvisories);
+      });
   }
 
 }
