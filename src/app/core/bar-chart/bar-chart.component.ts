@@ -31,6 +31,7 @@ export class BarChartComponent implements OnInit {
       '#ED0D6C',
     ],
   };
+  showDataLabel = true;
   constructor() { }
 
   ngOnInit() {
