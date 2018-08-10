@@ -18,6 +18,8 @@ export class HoursSurveyDataComponent implements OnInit {
   accountingChart: ChartData[];
   specialtyServiceChart: ChartData[];
   taxChart: ChartData[];
+  learningAdvisories: ChartData[];
+  opportunityAdvisories: ChartData[];
 
   constructor(private dataService: DataService, private formatHelper: FormatHelper) { }
 
@@ -34,6 +36,8 @@ export class HoursSurveyDataComponent implements OnInit {
         this.industryLearnChart = this.formatHelper.formatSimpleChartData(this.hoursSurveyObject.ITLearn);
         this.serviceLineAlignment = this.formatHelper.formatSimpleChartData(this.hoursSurveyObject.ServiceLineAlignment);
         this.formatSubGroupExpertise(this.hoursSurveyObject.SubGroupExpertises);
+        this.learningAdvisories = this.formatHelper.formatSimpleChartData(this.hoursSurveyObject.LearningAdvisories);
+        this.opportunityAdvisories = this.formatHelper.formatSimpleChartData(this.hoursSurveyObject.OpportunityAdvisories);
       });
   }
 

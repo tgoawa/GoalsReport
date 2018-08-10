@@ -43,4 +43,5 @@ export interface SurveyDataObject {
   ServiceLineAlignment: ChartData[];
   OpportunityAdvisories: ChartData[];
   SubGroupExpertises: any[];
+  LearningAdvisories: ChartData[];
 }
