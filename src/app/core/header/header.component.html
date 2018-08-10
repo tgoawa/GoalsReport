@@ -2,18 +2,21 @@
   <img src="../../../assets/images/schenck-logo.png">
   <a mat-button color="primary" routerLink="goal-report">Goal Data</a>
   <a mat-button color="primary" routerLink="one-to-one-report">One to One Data</a>
-  <a mat-button color="primary">Hours Data</a>
+  <!-- <a mat-button color="primary">Hours Data</a> -->
   <button mat-button color="primary" [matMenuTriggerFor]="hoursSurveyData">Hours Survey Data <mat-icon>arrow_drop_down</mat-icon></button>
   <mat-menu #hoursSurveyData="matMenu">
     <button mat-menu-item routerLink="hours-survey-report">Survey Data</button>
     <button mat-menu-item routerLink="industry-spent-time-in">Industry Spent Time In</button>
     <button mat-menu-item routerLink="industry-learn-about">Industry Learn About</button>
     <button mat-menu-item routerLink="service-line-alignment">Service Line Alignment</button>
-    <button mat-menu-item routerLink="assurance">Assurance</button>
-    <button mat-menu-item routerLink="accounting">Accounting</button>
-    <button mat-menu-item routerLink="specialty-services">Specialty Services</button>
-    <button mat-menu-item routerLink="tax">Tax</button>
+    <button mat-menu-item [matMenuTriggerFor]="expertiseSubgroups">Expertise Subgroups</button>
     <button mat-menu-item routerLink="learning-advisories">Learning Advisories</button>
     <button mat-menu-item routerLink="opportunity-advisories">Opportunity Advisories</button>
+  </mat-menu>
+  <mat-menu #expertiseSubgroups="matMenu">
+      <button mat-menu-item routerLink="assurance">Assurance</button>
+      <button mat-menu-item routerLink="accounting">Accounting</button>
+      <button mat-menu-item routerLink="specialty-services">Specialty Services</button>
+      <button mat-menu-item routerLink="tax">Tax</button>
   </mat-menu>
 </mat-toolbar>
