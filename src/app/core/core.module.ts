@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import {
   MatButtonModule,
   MatDialogModule,
+  MatIconModule,
+  MatMenuModule,
   MatToolbarModule,
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -23,6 +25,8 @@ import { FormatHelper } from './helper/formatHelper';
     RouterModule,
     MatButtonModule,
     MatDialogModule,
+    MatIconModule,
+    MatMenuModule,
     MatToolbarModule,
     NgxChartsModule,
   ],
