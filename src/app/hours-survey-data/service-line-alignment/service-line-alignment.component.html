@@ -1,0 +1,9 @@
+<section fxLayout="column" fxLayoutAlign="space-between none">
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <h3 class="text-center">Service line I mostly align with</h3>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+      <app-bar-chart fxFlex="50" [data]="serviceLineAlignment" *ngIf="serviceLineAlignment"></app-bar-chart>
+      <app-pie-chart fxFlex="50" [data]="serviceLineAlignment" *ngIf="serviceLineAlignment"></app-pie-chart>
+    </div>
+  </section>

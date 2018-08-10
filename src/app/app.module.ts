@@ -20,6 +20,15 @@ import { HomeComponent } from './home/home.component';
 import { GroupedBarChartComponent } from './one-to-one-data/bar-chart/bar-chart.component';
 import { LineChartComponent } from './one-to-one-data/line-chart/line-chart.component';
 import { LocationStrategy, HashLocationStrategy } from '../../node_modules/@angular/common';
+import { IndustrySpentTimeInComponent } from './hours-survey-data/industry-spent-time-in/industry-spent-time-in.component';
+import { IndustryLearnAboutComponent } from './hours-survey-data/industry-learn-about/industry-learn-about.component';
+import { ServiceLineAlignmentComponent } from './hours-survey-data/service-line-alignment/service-line-alignment.component';
+import { AssuranceComponent } from './hours-survey-data/assurance/assurance.component';
+import { AccountingComponent } from './hours-survey-data/accounting/accounting.component';
+import { SpecialtyServiceComponent } from './hours-survey-data/specialty-service/specialty-service.component';
+import { TaxComponent } from './hours-survey-data/tax/tax.component';
+import { LearningAdvisoriesComponent } from './hours-survey-data/learning-advisories/learning-advisories.component';
+import { OpportunityAdvisoriesComponent } from './hours-survey-data/opportunity-advisories/opportunity-advisories.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +39,16 @@ import { LocationStrategy, HashLocationStrategy } from '../../node_modules/@angu
     HoursSurveyDataComponent,
     HomeComponent,
     GroupedBarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    IndustrySpentTimeInComponent,
+    IndustryLearnAboutComponent,
+    ServiceLineAlignmentComponent,
+    AssuranceComponent,
+    AccountingComponent,
+    SpecialtyServiceComponent,
+    TaxComponent,
+    LearningAdvisoriesComponent,
+    OpportunityAdvisoriesComponent
   ],
   imports: [
     BrowserModule,
