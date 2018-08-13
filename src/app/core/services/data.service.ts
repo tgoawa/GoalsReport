@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { catchError, retry } from 'rxjs/operators';
-import { GoalReport, OneToOneReport, SurveyDataObject } from '../model/goal-report.model';
+import { GoalReport, OneToOneReport, SurveyDataObject, ChartData } from '../model/goal-report.model';
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
+import { TeamMember } from '../model/teamMember.model';
 
 const api = environment.envApi;
 @Injectable()
@@ -20,8 +21,24 @@ export class DataService {
     );
   }
 
+  getExpertiseNames(IsExpert: boolean) {
+    return this.http.get<TeamMember[]>(api + 'GetExpertiseNames/' + IsExpert)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
   getOneToOneReportData(totalMonths: number) {
     return this.http.get<OneToOneReport>(api + 'GetOneToOneCounts/' + totalMonths)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  getTeamMembers(data: ChartData) {
+    return this.http.get<TeamMember[]>(api + 'GetTeamMembers/' + data.QuestionId + '/' + data.name)
     .pipe(
       retry(3),
       catchError(this.handleError)

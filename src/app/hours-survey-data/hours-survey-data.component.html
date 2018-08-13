@@ -7,6 +7,9 @@
   </section>
   <section fxLayout="column" fxLayoutAlign="space-between none">
     <h3>I am spending sufficient time in my chosen industry(s) to develop expertise</h3>
-    <app-pie-chart [data]="timeInIndustryChart" *ngIf="timeInIndustryChart"></app-pie-chart>
+    <app-pie-chart [data]="timeInIndustryChart" *ngIf="timeInIndustryChart" (drillDownData)="onSelectedData($event)"></app-pie-chart>
+  </section>
+  <section *ngIf="teamMemberList">
+    <app-team-member-list [teamMemberList]="teamMemberList"></app-team-member-list>
   </section>
 </div>

@@ -35,7 +35,7 @@ import { TeamMemberListComponent } from './team-member-list/team-member-list.com
     MatToolbarModule,
     NgxChartsModule,
   ],
-  exports: [HeaderComponent, PieChartComponent, BarChartComponent],
+  exports: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent],
   declarations: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent],
   providers: [DataService, FormatHelper],
 })
