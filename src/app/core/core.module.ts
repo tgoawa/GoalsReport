@@ -9,6 +9,8 @@ import {
   MatDialogModule,
   MatIconModule,
   MatMenuModule,
+  MatPaginatorModule,
+  MatTableModule,
   MatToolbarModule,
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -17,6 +19,7 @@ import { DataService } from './services/data.service';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { FormatHelper } from './helper/formatHelper';
+import { TeamMemberListComponent } from './team-member-list/team-member-list.component';
 
 @NgModule({
   imports: [
@@ -27,11 +30,13 @@ import { FormatHelper } from './helper/formatHelper';
     MatDialogModule,
     MatIconModule,
     MatMenuModule,
+    MatPaginatorModule,
+    MatTableModule,
     MatToolbarModule,
     NgxChartsModule,
   ],
   exports: [HeaderComponent, PieChartComponent, BarChartComponent],
-  declarations: [HeaderComponent, PieChartComponent, BarChartComponent],
+  declarations: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent],
   providers: [DataService, FormatHelper],
 })
 export class CoreModule {

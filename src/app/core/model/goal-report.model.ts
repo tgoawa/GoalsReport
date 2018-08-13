@@ -16,6 +16,7 @@ export interface OneToOneReport {
 }
 
 export class ChartData {
+  QuestionId: number;
   name: string;
   value: number;
 
@@ -35,6 +36,7 @@ export class HoursChartData {
 }
 
 export interface SurveyDataObject {
+  QuestionId: number;
   SurveyCount: number;
   ExpertiseYesCount: number;
   ExpertiseNoCount: number;

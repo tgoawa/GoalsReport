@@ -10,6 +10,7 @@ import { FormatHelper } from '../core/helper/formatHelper';
 })
 export class HoursSurveyDataComponent implements OnInit {
   hoursSurveyObject: SurveyDataObject;
+  questionId: number;
   timeInIndustryChart: ChartData[];
 
   constructor(private dataService: DataService, private formatHelper: FormatHelper) { }
@@ -30,5 +31,6 @@ export class HoursSurveyDataComponent implements OnInit {
     this.timeInIndustryChart = [];
     this.timeInIndustryChart.push(new ChartData('No', surveyDataObject.ExpertiseNoCount));
     this.timeInIndustryChart.push(new ChartData('Yes', surveyDataObject.ExpertiseYesCount));
+    this.questionId = surveyDataObject.QuestionId;
   }
 }

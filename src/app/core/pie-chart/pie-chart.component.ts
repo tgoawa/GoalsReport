@@ -35,6 +35,7 @@ export class PieChartComponent implements OnInit {
   }
 
   onSelect(event) {
+    console.log(event);
     this.drillDownData.emit(event);
   }
 
