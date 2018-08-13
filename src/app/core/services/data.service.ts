@@ -37,8 +37,8 @@ export class DataService {
     );
   }
 
-  getTeamMembers(data: ChartData) {
-    return this.http.get<TeamMember[]>(api + 'GetTeamMembers/' + data.QuestionId + '/' + data.name)
+  getTeamMembers(questionId: number, name: string) {
+    return this.http.get<TeamMember[]>(api + 'GetTeamMembers/' + questionId + '/' + name)
     .pipe(
       retry(3),
       catchError(this.handleError)

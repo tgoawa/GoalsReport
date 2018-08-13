@@ -3,7 +3,10 @@
     <h3 class="text-center">Industries I spend the most time in</h3>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
-    <app-bar-chart fxFlex="50" [data]="industrySpentTimeChart" *ngIf="industrySpentTimeChart"></app-bar-chart>
-    <app-pie-chart fxFlex="50" [data]="industrySpentTimeChart" *ngIf="industrySpentTimeChart"></app-pie-chart>
+    <app-bar-chart fxFlex="50" [data]="industrySpentTimeChart" *ngIf="industrySpentTimeChart" (drillDownData)="onSelect($event)"></app-bar-chart>
+    <app-pie-chart fxFlex="50" [data]="industrySpentTimeChart" *ngIf="industrySpentTimeChart" (drillDownData)="onSelect($event)"></app-pie-chart>
   </div>
+</section>
+<section *ngIf="teamMemberList">
+  <app-team-member-list [teamMemberList]="teamMemberList"></app-team-member-list>
 </section>
