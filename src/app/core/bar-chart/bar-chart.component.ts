@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ChartData } from 'src/app/core/model/goal-report.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { ChartData } from 'src/app/core/model/goal-report.model';
 })
 export class BarChartComponent implements OnInit {
   @Input() data: ChartData[];
+  @Output() drillDownData: EventEmitter<ChartData> = new EventEmitter();
 
   view: any[] = [700, 400];
   // options
@@ -35,6 +36,10 @@ export class BarChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(event) {
+    this.drillDownData.emit(event);
   }
 
 }

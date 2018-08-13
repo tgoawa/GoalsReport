@@ -5,5 +5,6 @@
       [legend]="showLegend"
       [explodeSlices]="explodeSlices"
       [labels]="showLabels"
-      [doughnut]="doughnut">
+      [doughnut]="doughnut"
+      (select)="onSelect($event)">
     </ngx-charts-pie-chart>
