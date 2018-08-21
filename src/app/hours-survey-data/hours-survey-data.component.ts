@@ -16,8 +16,7 @@ export class HoursSurveyDataComponent implements OnInit {
   teamMemberList: TeamMember[];
 
   constructor(
-    private dataService: DataService,
-    private formatHelper: FormatHelper
+    private dataService: DataService
   ) {}
 
   ngOnInit() {
