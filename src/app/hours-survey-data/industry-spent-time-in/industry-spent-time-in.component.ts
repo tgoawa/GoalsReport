@@ -6,6 +6,7 @@ import {
 import { DataService } from 'src/app/core/services/data.service';
 import { FormatHelper } from 'src/app/core/helper/formatHelper';
 import { TeamMember } from '../../core/model/teamMember.model';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-industry-spent-time-in',
@@ -15,7 +16,7 @@ import { TeamMember } from '../../core/model/teamMember.model';
 export class IndustrySpentTimeInComponent implements OnInit {
   industrySpentTimeChart: ChartData[];
   questionId: number;
-  teamMemberList: TeamMember[];
+  teamMemberList: MatTableDataSource<TeamMember>;
 
   constructor(
     private dataService: DataService,
@@ -39,7 +40,7 @@ export class IndustrySpentTimeInComponent implements OnInit {
     this.dataService
       .getTeamMembers(this.questionId, name)
       .subscribe((data: TeamMember[]) => {
-        this.teamMemberList = data;
+        this.teamMemberList.data = data;
       });
   }
 }

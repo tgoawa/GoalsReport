@@ -10,6 +10,6 @@
     <app-pie-chart [data]="timeInIndustryChart" *ngIf="timeInIndustryChart" (drillDownData)="onSelectedData($event)"></app-pie-chart>
   </section>
   <section *ngIf="teamMemberList">
-    <app-team-member-list [teamMemberList]="teamMemberList"></app-team-member-list>
+    <app-team-member-list [dataSource]="teamMemberList"></app-team-member-list>
   </section>
 </div>
