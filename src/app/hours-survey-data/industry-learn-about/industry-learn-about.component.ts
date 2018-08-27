@@ -3,7 +3,6 @@ import { ChartData, SurveyDataObject } from '../../core/model/goal-report.model'
 import { DataService } from '../../core/services/data.service';
 import { FormatHelper } from '../../core/helper/formatHelper';
 import { TeamMember } from 'src/app/core/model/teamMember.model';
-import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-industry-learn-about',
@@ -13,7 +12,7 @@ import { MatTableDataSource } from '@angular/material';
 export class IndustryLearnAboutComponent implements OnInit {
   industryLearnChart: ChartData[];
   questionId: number;
-  teamMemberList: MatTableDataSource<TeamMember>;
+  teamMemberList: TeamMember[];
 
   constructor(private dataService: DataService, private formatHelper: FormatHelper) { }
 
@@ -33,7 +32,7 @@ export class IndustryLearnAboutComponent implements OnInit {
     this.dataService
       .getTeamMembers(this.questionId, name)
       .subscribe((data: TeamMember[]) => {
-        this.teamMemberList.data = data;
+        this.teamMemberList = data;
       });
   }
 

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/services/data.service';
 import { SurveyDataObject, ChartData } from '../core/model/goal-report.model';
-import { FormatHelper } from '../core/helper/formatHelper';
 import { TeamMember } from '../core/model/teamMember.model';
-import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-hours-survey-data',
@@ -14,7 +12,7 @@ export class HoursSurveyDataComponent implements OnInit {
   hoursSurveyObject: SurveyDataObject;
   questionId: number;
   timeInIndustryChart: ChartData[];
-  teamMemberList: MatTableDataSource<TeamMember>;
+  teamMemberList: TeamMember[];
 
   constructor(
     private dataService: DataService
@@ -45,7 +43,7 @@ export class HoursSurveyDataComponent implements OnInit {
     this.dataService
       .getExpertiseNames(IsExpert)
       .subscribe((data: TeamMember[]) => {
-        this.teamMemberList.data = data;
+        this.teamMemberList = data;
       });
   }
 
