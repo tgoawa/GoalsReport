@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartData, SurveyDataObject } from '../../core/model/goal-report.model';
+import { ChartData, SurveyDataObject, ChartObject } from '../../core/model/goal-report.model';
 import { DataService } from 'src/app/core/services/data.service';
+import { TeamMember } from '../../core/model/teamMember.model';
 
 @Component({
   selector: 'app-tax',
@@ -9,6 +10,8 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class TaxComponent implements OnInit {
   taxChart: ChartData[];
+  questionId: number;
+  teamMemberList: TeamMember[];
 
   constructor(private dataService: DataService) { }
 
@@ -16,6 +19,19 @@ export class TaxComponent implements OnInit {
     this.dataService.getSurveyData()
       .subscribe((data: SurveyDataObject) => {
         this.formatSubGroupExpertise(data.SubGroupExpertises);
+        this.questionId = data.SubGroupExpertises[0].QuestionId;
+      });
+  }
+
+  onSelect(event: ChartData) {
+    this.getTeamMembers(event.name);
+  }
+
+  private getTeamMembers(name: string) {
+    this.dataService
+      .getTeamMembers(new ChartObject(this.questionId, name))
+      .subscribe((data: TeamMember[]) => {
+        this.teamMemberList = data;
       });
   }
 

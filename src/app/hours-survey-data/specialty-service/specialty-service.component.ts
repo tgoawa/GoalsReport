@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartData, SurveyDataObject } from '../../core/model/goal-report.model';
+import { ChartData, SurveyDataObject, ChartObject } from '../../core/model/goal-report.model';
 import { DataService } from 'src/app/core/services/data.service';
+import { TeamMember } from '../../core/model/teamMember.model';
 
 @Component({
   selector: 'app-specialty-service',
@@ -9,6 +10,8 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class SpecialtyServiceComponent implements OnInit {
   specialtyServiceChart: ChartData[];
+  questionId: number;
+  teamMemberList: TeamMember[];
 
   constructor(private dataService: DataService) { }
 
@@ -16,6 +19,19 @@ export class SpecialtyServiceComponent implements OnInit {
     this.dataService.getSurveyData()
       .subscribe((data: SurveyDataObject) => {
         this.formatSubGroupExpertise(data.SubGroupExpertises);
+        this.questionId = data.SubGroupExpertises[0].QuestionId;
+      });
+  }
+
+  onSelect(event: ChartData) {
+    this.getTeamMembers(event.name);
+  }
+
+  private getTeamMembers(name: string) {
+    this.dataService
+      .getTeamMembers(new ChartObject(this.questionId, name))
+      .subscribe((data: TeamMember[]) => {
+        this.teamMemberList = data;
       });
   }
 
