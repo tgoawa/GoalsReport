@@ -7,3 +7,6 @@
     <app-pie-chart fxFlex="50" [data]="learningAdvisories" *ngIf="learningAdvisories" (drillDownData)="onSelect($event)"></app-pie-chart>
   </div>
 </section>
+<section *ngIf="teamMemberList">
+  <app-team-member-list [dataSource]="teamMemberList"></app-team-member-list>
+</section>
