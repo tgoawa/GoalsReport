@@ -10,6 +10,7 @@ import { TeamMember } from '../../core/model/teamMember.model';
 })
 export class AccountingComponent implements OnInit {
   accountingChart: ChartData[];
+  dataTitle: string;
   questionId: number;
   teamMemberList: TeamMember[];
 
@@ -24,6 +25,7 @@ export class AccountingComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

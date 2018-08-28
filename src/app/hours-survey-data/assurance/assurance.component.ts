@@ -9,6 +9,7 @@ import { TeamMember } from 'src/app/core/model/teamMember.model';
   styleUrls: ['./assurance.component.css']
 })
 export class AssuranceComponent implements OnInit {
+  dataTitle: string;
   assuranceChart: ChartData[];
   questionId: number;
   teamMemberList: TeamMember[];
@@ -24,6 +25,7 @@ export class AssuranceComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

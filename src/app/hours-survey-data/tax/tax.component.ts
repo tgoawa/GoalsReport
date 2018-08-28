@@ -9,6 +9,7 @@ import { TeamMember } from '../../core/model/teamMember.model';
   styleUrls: ['./tax.component.css']
 })
 export class TaxComponent implements OnInit {
+  dataTitle: string;
   taxChart: ChartData[];
   questionId: number;
   teamMemberList: TeamMember[];
@@ -24,6 +25,7 @@ export class TaxComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

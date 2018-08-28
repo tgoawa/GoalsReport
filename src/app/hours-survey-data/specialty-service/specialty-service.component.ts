@@ -9,6 +9,7 @@ import { TeamMember } from '../../core/model/teamMember.model';
   styleUrls: ['./specialty-service.component.css']
 })
 export class SpecialtyServiceComponent implements OnInit {
+  dataTitle: string;
   specialtyServiceChart: ChartData[];
   questionId: number;
   teamMemberList: TeamMember[];
@@ -24,6 +25,7 @@ export class SpecialtyServiceComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 
