@@ -10,6 +10,7 @@ import { MatPaginator, MatTableDataSource } from '../../../../node_modules/@angu
 })
 export class TeamMemberListComponent implements OnChanges {
   @Input() dataSource: TeamMember[];
+  @Input() title: string;
   teamMemberList: MatTableDataSource<TeamMember>;
   displayedColumns = [
     'LastName',

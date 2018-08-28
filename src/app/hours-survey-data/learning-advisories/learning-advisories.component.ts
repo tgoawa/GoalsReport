@@ -10,6 +10,7 @@ import { TeamMember } from 'src/app/core/model/teamMember.model';
   styleUrls: ['./learning-advisories.component.css']
 })
 export class LearningAdvisoriesComponent implements OnInit {
+  dataTitle: string;
   learningAdvisories: ChartData[];
   questionId: number;
   teamMemberList: TeamMember[];
@@ -25,6 +26,7 @@ export class LearningAdvisoriesComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

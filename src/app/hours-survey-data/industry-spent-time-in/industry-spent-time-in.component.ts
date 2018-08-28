@@ -15,6 +15,7 @@ import { TeamMember } from '../../core/model/teamMember.model';
 })
 export class IndustrySpentTimeInComponent implements OnInit {
   industrySpentTimeChart: ChartData[];
+  dataTitle: string;
   questionId: number;
   teamMemberList: TeamMember[];
 
@@ -33,6 +34,7 @@ export class IndustrySpentTimeInComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

@@ -1,13 +1,17 @@
-<mat-form-field>
-  <input matInput [matDatepicker]="picker" (dateChange)="getGoalReportData($event.value)" placeholder="Choose a date">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<div *ngIf="goalReport">
-  <p>
-    Since {{goalReport.FromDate}}
-  </p>
-  <p>
-    {{goalReport.GoalCount}} Team Members have created goals.
-  </p>
+<div class="mat-typography">
+  <h1>View Team members that have created goals</h1>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" (dateChange)="getGoalReportData($event.value)" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div *ngIf="goalReport">
+    <p>
+      Since {{goalReport.FromDate}}
+    </p>
+    <p>
+      {{goalReport.GoalCount}} Team Members have created goals.
+    </p>
+  </div>
 </div>
+

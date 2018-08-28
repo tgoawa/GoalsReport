@@ -11,6 +11,7 @@ import { TeamMember } from 'src/app/core/model/teamMember.model';
 })
 export class IndustryLearnAboutComponent implements OnInit {
   industryLearnChart: ChartData[];
+  dataTitle: string;
   questionId: number;
   teamMemberList: TeamMember[];
 
@@ -25,6 +26,7 @@ export class IndustryLearnAboutComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

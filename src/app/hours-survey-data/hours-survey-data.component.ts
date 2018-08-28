@@ -10,6 +10,7 @@ import { TeamMember } from '../core/model/teamMember.model';
 })
 export class HoursSurveyDataComponent implements OnInit {
   hoursSurveyObject: SurveyDataObject;
+  dataTitle: string;
   questionId: number;
   timeInIndustryChart: ChartData[];
   teamMemberList: TeamMember[];
@@ -31,8 +32,10 @@ export class HoursSurveyDataComponent implements OnInit {
 
   onSelectedData(event: ChartData) {
     if (event.name === 'Yes') {
+      this.dataTitle = event.name;
       this.getExpertiseNames(true);
     } else if (event.name === 'No') {
+      this.dataTitle = event.name;
       this.getExpertiseNames(false);
     } else {
       return;

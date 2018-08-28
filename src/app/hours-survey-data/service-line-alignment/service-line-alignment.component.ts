@@ -10,6 +10,7 @@ import { TeamMember } from 'src/app/core/model/teamMember.model';
   styleUrls: ['./service-line-alignment.component.css']
 })
 export class ServiceLineAlignmentComponent implements OnInit {
+  dataTitle: string;
   serviceLineAlignment: ChartData[];
   questionId: number;
   teamMemberList: TeamMember[];
@@ -25,6 +26,7 @@ export class ServiceLineAlignmentComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 

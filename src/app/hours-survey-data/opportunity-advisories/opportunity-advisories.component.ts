@@ -14,6 +14,7 @@ import { TeamMember } from 'src/app/core/model/teamMember.model';
   styleUrls: ['./opportunity-advisories.component.css'],
 })
 export class OpportunityAdvisoriesComponent implements OnInit {
+  dataTitle: string;
   opportunityAdvisories: ChartData[];
   questionId: number;
   teamMemberList: TeamMember[];
@@ -33,6 +34,7 @@ export class OpportunityAdvisoriesComponent implements OnInit {
   }
 
   onSelect(event: ChartData) {
+    this.dataTitle = event.name;
     this.getTeamMembers(event.name);
   }
 
