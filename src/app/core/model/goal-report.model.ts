@@ -47,3 +47,13 @@ export interface SurveyDataObject {
   SubGroupExpertises: any[];
   LearningAdvisories: ChartData[];
 }
+
+export class ChartObject {
+  QuestionId: number;
+  Value: string;
+
+  constructor(questionId: number, name: string) {
+    this.QuestionId = questionId;
+    this.Value = name;
+  }
+}

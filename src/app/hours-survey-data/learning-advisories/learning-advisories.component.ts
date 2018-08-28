@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartData, SurveyDataObject } from '../../core/model/goal-report.model';
+import { ChartData, SurveyDataObject, ChartObject } from '../../core/model/goal-report.model';
 import { DataService } from 'src/app/core/services/data.service';
 import { FormatHelper } from 'src/app/core/helper/formatHelper';
 import { TeamMember } from 'src/app/core/model/teamMember.model';
@@ -30,7 +30,7 @@ export class LearningAdvisoriesComponent implements OnInit {
 
   private getTeamMembers(name: string) {
     this.dataService
-      .getTeamMembers(this.questionId, name)
+      .getTeamMembers(new ChartObject(this.questionId, name))
       .subscribe((data: TeamMember[]) => {
         this.teamMemberList = data;
       });

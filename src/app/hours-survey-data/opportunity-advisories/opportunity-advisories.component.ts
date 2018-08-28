@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   ChartData,
   SurveyDataObject,
+  ChartObject,
 } from '../../core/model/goal-report.model';
 import { DataService } from 'src/app/core/services/data.service';
 import { FormatHelper } from 'src/app/core/helper/formatHelper';
@@ -37,7 +38,7 @@ export class OpportunityAdvisoriesComponent implements OnInit {
 
   private getTeamMembers(name: string) {
     this.dataService
-      .getTeamMembers(this.questionId, name)
+      .getTeamMembers(new ChartObject(this.questionId, name))
       .subscribe((data: TeamMember[]) => {
         this.teamMemberList = data;
       });

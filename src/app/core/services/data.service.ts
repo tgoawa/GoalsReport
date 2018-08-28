@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { catchError, retry } from 'rxjs/operators';
-import { GoalReport, OneToOneReport, SurveyDataObject, ChartData } from '../model/goal-report.model';
+import { GoalReport, OneToOneReport, SurveyDataObject, ChartData, ChartObject } from '../model/goal-report.model';
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
 import { TeamMember } from '../model/teamMember.model';
@@ -37,8 +37,8 @@ export class DataService {
     );
   }
 
-  getTeamMembers(questionId: number, name: string) {
-    return this.http.get<TeamMember[]>(api + 'GetTeamMembers/' + questionId + '/' + name)
+  getTeamMembers(chartObject: ChartObject) {
+    return this.http.put<TeamMember[]>(api + 'GetTeamMembers/', chartObject)
     .pipe(
       retry(3),
       catchError(this.handleError)
