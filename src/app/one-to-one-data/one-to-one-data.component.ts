@@ -48,7 +48,7 @@ export class OneToOneDataComponent implements OnInit {
   private createChartDataObject(reportObject: OneToOneReport) {
     this.chartData = [];
     this.chartData.push(new HoursChartData('Total Meetings Per Month'));
-    this.chartData.push(new HoursChartData('Distinct Meetings Per Month'));
+    this.chartData.push(new HoursChartData('Number of team members Per Month'));
 
     this.chartData[0].series = [];
     this.chartData[1].series = [];
