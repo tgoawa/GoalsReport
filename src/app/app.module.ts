@@ -29,6 +29,7 @@ import { SpecialtyServiceComponent } from './hours-survey-data/specialty-service
 import { TaxComponent } from './hours-survey-data/tax/tax.component';
 import { LearningAdvisoriesComponent } from './hours-survey-data/learning-advisories/learning-advisories.component';
 import { OpportunityAdvisoriesComponent } from './hours-survey-data/opportunity-advisories/opportunity-advisories.component';
+import { NoGoalsComponent } from './goal-data/no-goals/no-goals.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { OpportunityAdvisoriesComponent } from './hours-survey-data/opportunity-
     SpecialtyServiceComponent,
     TaxComponent,
     LearningAdvisoriesComponent,
-    OpportunityAdvisoriesComponent
+    OpportunityAdvisoriesComponent,
+    NoGoalsComponent
   ],
   imports: [
     BrowserModule,
