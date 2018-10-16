@@ -1,3 +1,8 @@
-<p>
-  no-goals works!
-</p>
+<section *ngIf="teamMemberList; else loading">
+  <app-team-member-list [dataSource]="teamMemberList" [title]="dataTitle"></app-team-member-list>
+</section>
+<ng-template #loading>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
