@@ -14,7 +14,9 @@ export class TeamMemberListComponent implements OnChanges {
   teamMemberList: MatTableDataSource<TeamMember>;
   displayedColumns = [
     'LastName',
-    'FirstName'
+    'FirstName',
+    'Location',
+    'BusinessUnit'
   ];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
