@@ -6,6 +6,7 @@ import { GoalReport, OneToOneReport, SurveyDataObject, ChartData, ChartObject } 
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
 import { TeamMember } from '../model/teamMember.model';
+import { LookUps } from '../model/lookup.model';
 
 const api = environment.envApi;
 @Injectable()
@@ -23,6 +24,22 @@ export class DataService {
 
   getExpertiseNames(IsExpert: boolean) {
     return this.http.get<TeamMember[]>(api + 'GetExpertiseNames/' + IsExpert)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  getLookupLists() {
+    return this.http.get<LookUps>(api + 'GetLookupLists')
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
+  getNoGoalsTeamMembers() {
+    return this.http.get<TeamMember[]>(api + 'GetNoGoalsTeamMembers/')
     .pipe(
       retry(3),
       catchError(this.handleError)
