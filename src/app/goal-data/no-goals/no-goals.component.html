@@ -1,3 +1,11 @@
+<div>
+  <h3>Filter by:</h3>
+  <mat-radio-group fxLayout="column" fxLayoutAlign="space-between start" [(ngModel)]="filterByOption">
+    <mat-radio-button value="none">None</mat-radio-button>
+    <mat-radio-button value="businessUnit">Business Unit</mat-radio-button>
+    <mat-radio-button value="location">Location</mat-radio-button>
+  </mat-radio-group>
+</div>
 <section *ngIf="filteredTeamMemberList; else loading">
   <app-team-member-list [dataSource]="filteredTeamMemberList" [title]="dataTitle"></app-team-member-list>
 </section>

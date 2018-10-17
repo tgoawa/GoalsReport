@@ -9,6 +9,7 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class NoGoalsComponent implements OnInit {
   dataTitle = 'Team Members that have not created any goals';
+  filterByOption = 'none';
   filteredTeamMemberList: TeamMember[];
 
   private teamMemberList: TeamMember[];
