@@ -7,12 +7,19 @@ import { throwError } from '../../../../node_modules/rxjs/internal/observable/th
 import { environment } from '../../../environments/environment';
 import { TeamMember } from '../model/teamMember.model';
 import { LookUps } from '../model/lookup.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { isNull } from 'util';
 
 const api = environment.envApi;
 @Injectable()
 export class DataService {
+  lookups$: Observable<LookUps>;
+  private _lookups: BehaviorSubject<LookUps>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this._lookups = <BehaviorSubject<LookUps>>new BehaviorSubject({});
+    this.lookups$ = this._lookups.asObservable();
+  }
 
   getGoalReportData(fromDate: string) {
     return this.http.get<GoalReport>(api + 'GetGoalCountFromDate/' + fromDate)
@@ -31,11 +38,14 @@ export class DataService {
   }
 
   getLookupLists() {
-    return this.http.get<LookUps>(api + 'GetLookupLists')
-    .pipe(
-      retry(3),
-      catchError(this.handleError)
+    if (isNull(this._lookups)) {
+      return this.http.get<LookUps>(api + 'GetLookupLists')
+      .subscribe((data: LookUps) => {
+        const lookups = data;
+        this._lookups.next(lookups);
+      }, error => console.error('Error getting look ups')
     );
+    }
   }
 
   getNoGoalsTeamMembers() {
