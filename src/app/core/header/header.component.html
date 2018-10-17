@@ -1,6 +1,10 @@
 <mat-toolbar class="transparent-bg">
   <a routerLink="home"><img src="../../../assets/images/schenck-logo.png"></a>
-  <a mat-button color="primary" routerLink="goal-report">Goal Data</a>
+  <button mat-button color="primary" [matMenuTriggerFor]="goalsData">Goals Data<mat-icon>arrow_drop_down</mat-icon></button>
+  <mat-menu #goalsData="matMenu">
+    <button mat-menu-item routerLink="completed-goals">Completed Goals</button>
+    <button mat-menu-item routerLink="no-goals-completed">No Completed Goals</button>
+  </mat-menu>
   <a mat-button color="primary" routerLink="one-to-one-report">One to One Data</a>
   <!-- <a mat-button color="primary">Hours Data</a> -->
   <button mat-button color="primary" [matMenuTriggerFor]="hoursSurveyData">Hours Survey Data <mat-icon>arrow_drop_down</mat-icon></button>

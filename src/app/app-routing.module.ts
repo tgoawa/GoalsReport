@@ -14,11 +14,13 @@ import { SpecialtyServiceComponent } from './hours-survey-data/specialty-service
 import { TaxComponent } from './hours-survey-data/tax/tax.component';
 import { LearningAdvisoriesComponent } from './hours-survey-data/learning-advisories/learning-advisories.component';
 import { OpportunityAdvisoriesComponent } from './hours-survey-data/opportunity-advisories/opportunity-advisories.component';
+import { NoGoalsComponent } from './goal-data/no-goals/no-goals.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'goal-report', component: GoalDataComponent},
+  {path: 'completed-goals', component: GoalDataComponent},
+  {path: 'no-goals-completed', component: NoGoalsComponent},
   {path: 'one-to-one-report', component: OneToOneDataComponent},
   {path: 'hours-report', component: HoursDataComponent},
   {path: 'hours-survey-report', component: HoursSurveyDataComponent},
