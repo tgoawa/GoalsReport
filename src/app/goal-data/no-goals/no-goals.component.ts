@@ -15,10 +15,17 @@ export class NoGoalsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.getTeamMembers();
   }
 
   getTeamMembers() {
-
+    this.dataService.getNoGoalsTeamMembers()
+      .subscribe((data: TeamMember[]) => {
+        this.teamMemberList = data;
+        this.filteredTeamMemberList = this.teamMemberList;
+      }, error => {
+        console.error(error);
+      });
   }
 
 }
