@@ -5,6 +5,22 @@
     <mat-radio-button value="businessUnit">Business Unit</mat-radio-button>
     <mat-radio-button value="location">Location</mat-radio-button>
   </mat-radio-group>
+  <div *ngIf="filterByOption !== 'none'">
+    <mat-form-field *ngIf="filterByOption === 'businessUnit'">
+      <mat-select placeholder="Business Unit">
+        <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.BusinessUnitId">
+          {{businessUnit.Name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="filterByOption === 'location'">
+      <mat-select placeholder="Location">
+        <mat-option *ngFor="let location of locations" [value]="location.LocationId">
+          {{location.Name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
 <section *ngIf="filteredTeamMemberList; else loading">
   <app-team-member-list [dataSource]="filteredTeamMemberList" [title]="dataTitle"></app-team-member-list>

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, map } from 'rxjs/operators';
 import { GoalReport, OneToOneReport, SurveyDataObject, ChartObject } from '../model/goal-report.model';
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
 import { TeamMember } from '../model/teamMember.model';
-import { LookUps } from '../model/lookup.model';
+import { LookUps, IBusinessUnits, ILocations } from '../model/lookup.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { isNull } from 'util';
 
@@ -14,11 +14,11 @@ const api = environment.envApi;
 @Injectable()
 export class DataService {
   lookups$: Observable<LookUps>;
+  businessUnits$: Observable<IBusinessUnits>;
+  locations$: Observable<ILocations>;
   private _lookups: BehaviorSubject<LookUps>;
 
   constructor(private http: HttpClient) {
-    this._lookups = <BehaviorSubject<LookUps>>new BehaviorSubject({});
-    this.lookups$ = this._lookups.asObservable();
   }
 
   getGoalReportData(fromDate: string) {
@@ -38,14 +38,11 @@ export class DataService {
   }
 
   getLookupLists() {
-    if (isNull(this._lookups)) {
       return this.http.get<LookUps>(api + 'GetLookupLists')
-      .subscribe((data: LookUps) => {
-        const lookups = data;
-        this._lookups.next(lookups);
-      }, error => console.error('Error getting look ups')
-    );
-    }
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
   }
 
   getNoGoalsTeamMembers() {
