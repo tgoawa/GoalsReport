@@ -14,6 +14,8 @@ export class NoGoalsComponent implements OnInit {
   businessUnits: IBusinessUnits[];
   locations: ILocations[];
   filteredTeamMemberList: TeamMember[];
+  filterByBusinessUnitOption: number;
+  filterByLocationOption: number;
 
   private teamMemberList: TeamMember[];
   constructor(private dataService: DataService) { }
@@ -41,6 +43,24 @@ export class NoGoalsComponent implements OnInit {
       }, error => {
         console.error(error);
       });
+  }
+
+  onBusinessUnitSelected(businessUnit) {
+    this.filteredTeamMemberList = [];
+    this.teamMemberList.forEach((teamMember: TeamMember) => {
+      if (teamMember.BusinessUnitId === businessUnit.value) {
+        this.filteredTeamMemberList.push(teamMember);
+      }
+    });
+  }
+
+  onLocationSelected(location) {
+    this.filteredTeamMemberList = [];
+    this.teamMemberList.forEach((teamMember: TeamMember) => {
+      if (teamMember.LocationId === location.value) {
+        this.filteredTeamMemberList.push(teamMember);
+      }
+    });
   }
 
 }

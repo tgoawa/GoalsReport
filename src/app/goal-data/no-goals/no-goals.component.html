@@ -7,14 +7,14 @@
   </mat-radio-group>
   <div *ngIf="filterByOption !== 'none'">
     <mat-form-field *ngIf="filterByOption === 'businessUnit'">
-      <mat-select placeholder="Business Unit">
+      <mat-select placeholder="Business Unit" (selectionChange)="onBusinessUnitSelected($event)">
         <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.BusinessUnitId">
           {{businessUnit.Name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field *ngIf="filterByOption === 'location'">
-      <mat-select placeholder="Location">
+      <mat-select placeholder="Location" (selectionChange)="onLocationSelected($event)">
         <mat-option *ngFor="let location of locations" [value]="location.LocationId">
           {{location.Name}}
         </mat-option>
