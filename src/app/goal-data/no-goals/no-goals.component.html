@@ -22,6 +22,9 @@
     </mat-form-field>
   </div>
 </div>
+<div>
+  <button mat-button color="primary" (click)="onExportCSV()">Export to CSV</button>
+</div>
 <section *ngIf="filteredTeamMemberList; else loading">
   <app-team-member-list [dataSource]="filteredTeamMemberList" [title]="dataTitle"></app-team-member-list>
 </section>

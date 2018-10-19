@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamMember } from 'src/app/core/model/teamMember.model';
+import { TeamMember, TeamMemberExport } from 'src/app/core/model/teamMember.model';
 import { DataService } from 'src/app/core/services/data.service';
 import { LookUps, IBusinessUnits, ILocations } from 'src/app/core/model/lookup.model';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
   selector: 'app-no-goals',
@@ -16,6 +17,17 @@ export class NoGoalsComponent implements OnInit {
   filteredTeamMemberList: TeamMember[];
   filterByBusinessUnitOption: number;
   filterByLocationOption: number;
+
+  csvOptions = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: true,
+    showTitle: true,
+    useBom: true,
+    noDownload: false,
+    headers: ['First Name', 'Last Name', 'Location', 'Business Unit']
+  };
 
   private teamMemberList: TeamMember[];
   constructor(private dataService: DataService) { }
@@ -61,6 +73,24 @@ export class NoGoalsComponent implements OnInit {
         this.filteredTeamMemberList.push(teamMember);
       }
     });
+  }
+
+  onExportCSV() {
+    // tslint:disable-next-line:no-unused-expression
+    new Angular5Csv(this.createExportData(this.filteredTeamMemberList), 'Team Member List', this.csvOptions);
+  }
+
+  private createExportData(teamMemberList: TeamMember[]): TeamMemberExport[] {
+    const exportData = [];
+
+    for (const teamMember of teamMemberList) {
+      exportData.push(new TeamMemberExport(teamMember.FirstName,
+        teamMember.LastName,
+        teamMember.LocationName,
+        teamMember.BusinessUnitName));
+    }
+
+    return exportData;
   }
 
 }
