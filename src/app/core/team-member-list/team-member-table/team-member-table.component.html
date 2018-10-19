@@ -1,0 +1,29 @@
+<div class="teamMemberList">
+  <table mat-table [dataSource]="teamMemberList">
+
+    <ng-container matColumnDef="LastName">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="FirstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Location">
+      <th mat-header-cell *matHeaderCellDef> Location </th>
+      <td mat-cell *matCellDef="let element"> {{element.LocationName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="BusinessUnit">
+      <th mat-header-cell *matHeaderCellDef> Business Unit </th>
+      <td mat-cell *matCellDef="let element"> {{element.BusinessUnitName}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="teamMemberList?.data.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -20,6 +20,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { FormatHelper } from './helper/formatHelper';
 import { TeamMemberListComponent } from './team-member-list/team-member-list.component';
+import { TeamMemberTableComponent } from './team-member-list/team-member-table/team-member-table.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import { TeamMemberListComponent } from './team-member-list/team-member-list.com
     NgxChartsModule,
   ],
   exports: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent],
-  declarations: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent],
+  declarations: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent, TeamMemberTableComponent],
   providers: [DataService, FormatHelper],
 })
 export class CoreModule {
