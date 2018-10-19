@@ -1,33 +1,4 @@
-<div>
-  <h3>Filter by:</h3>
-  <mat-radio-group fxLayout="column" fxLayoutAlign="space-between start" [(ngModel)]="filterByOption">
-    <mat-radio-button value="none">None</mat-radio-button>
-    <mat-radio-button value="businessUnit">Business Unit</mat-radio-button>
-    <mat-radio-button value="location">Location</mat-radio-button>
-  </mat-radio-group>
-  <div *ngIf="filterByOption !== 'none'">
-    <mat-form-field *ngIf="filterByOption === 'businessUnit'">
-      <mat-select placeholder="Business Unit" (selectionChange)="onBusinessUnitSelected($event)">
-        <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.BusinessUnitId">
-          {{businessUnit.Name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field *ngIf="filterByOption === 'location'">
-      <mat-select placeholder="Location" (selectionChange)="onLocationSelected($event)">
-        <mat-option *ngFor="let location of locations" [value]="location.LocationId">
-          {{location.Name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-</div>
-<div>
-  <button mat-button color="primary" (click)="onExportCSV()">Export to CSV</button>
-</div>
-<section *ngIf="filteredTeamMemberList; else loading">
-  <app-team-member-list [dataSource]="filteredTeamMemberList" [title]="dataTitle"></app-team-member-list>
-</section>
+<app-team-member-list *ngIf="teamMemberList; else loading" [dataSource]="teamMemberList"></app-team-member-list>
 <ng-template #loading>
   <div fxLayout="column" fxLayoutAlign="center center">
     <mat-spinner></mat-spinner>

@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // tslint:disable-next-line:max-line-length
-import { MatButtonModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatProgressSpinnerModule} from '@angular/material';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -65,8 +65,6 @@ import { NoGoalsComponent } from './goal-data/no-goals/no-goals.component';
     MatInputModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
-    MatRadioModule,
-    MatSelectModule,
     NgxChartsModule,
     AppRoutingModule
   ],

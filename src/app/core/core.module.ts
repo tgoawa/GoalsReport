@@ -1,4 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '../../../node_modules/@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { throwIfAlreadyLoaded } from './module-import.guard';
@@ -12,6 +13,8 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatToolbarModule,
+  MatRadioModule,
+  MatSelectModule,
 } from '@angular/material';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HeaderComponent } from './header/header.component';
@@ -25,6 +28,7 @@ import { TeamMemberTableComponent } from './team-member-list/team-member-table/t
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     HttpClientModule,
     RouterModule,
     MatButtonModule,
@@ -32,8 +36,10 @@ import { TeamMemberTableComponent } from './team-member-list/team-member-table/t
     MatIconModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatRadioModule,
     MatTableModule,
     MatToolbarModule,
+    MatSelectModule,
     NgxChartsModule,
   ],
   exports: [HeaderComponent, PieChartComponent, BarChartComponent, TeamMemberListComponent],
