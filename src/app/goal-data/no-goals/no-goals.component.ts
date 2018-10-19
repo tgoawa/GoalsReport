@@ -83,14 +83,18 @@ export class NoGoalsComponent implements OnInit {
   private createExportData(teamMemberList: TeamMember[]): TeamMemberExport[] {
     const exportData = [];
 
-    for (const teamMember of teamMemberList) {
-      exportData.push(new TeamMemberExport(teamMember.FirstName,
-        teamMember.LastName,
-        teamMember.LocationName,
-        teamMember.BusinessUnitName));
-    }
+    if (teamMemberList.length > 0) {
+      for (const teamMember of teamMemberList) {
+        exportData.push(new TeamMemberExport(teamMember.FirstName,
+          teamMember.LastName,
+          teamMember.LocationName,
+          teamMember.BusinessUnitName));
+      }
 
-    return exportData;
+      return exportData;
+    } else {
+      return;
+    }
   }
 
 }
