@@ -24,12 +24,14 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { FormatHelper } from './helper/formatHelper';
 import { TeamMemberListComponent } from './team-member-list/team-member-list.component';
 import { TeamMemberTableComponent } from './team-member-list/team-member-table/team-member-table.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
+    FlexLayoutModule,
     RouterModule,
     MatButtonModule,
     MatDialogModule,

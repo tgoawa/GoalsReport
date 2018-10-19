@@ -25,4 +25,6 @@
 <div>
   <button mat-button color="primary" (click)="onExportCSV()">Export to CSV</button>
 </div>
-<app-team-member-table *ngIf="filteredTeamMemberList" [dataSource]="filteredTeamMemberList"></app-team-member-table>
+<div fxLayout="row">
+  <app-team-member-table *ngIf="filteredTeamMemberList" [dataSource]="filteredTeamMemberList"></app-team-member-table>
+</div>
