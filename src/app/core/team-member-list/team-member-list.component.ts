@@ -67,6 +67,11 @@ export class TeamMemberListComponent implements OnChanges {
     });
   }
 
+  onRadioChanged() {
+    if (this.filterByOption === 'none') {
+      this.filteredTeamMemberList = this.dataSource;
+    }
+  }
   onExportCSV() {
     // tslint:disable-next-line:no-unused-expression
     new Angular5Csv(this.createExportData(this.filteredTeamMemberList), 'Team Member List', this.csvOptions);

@@ -1,6 +1,6 @@
 <div>
   <h3>Filter by:</h3>
-  <mat-radio-group fxLayout="column" fxLayoutAlign="space-between start" [(ngModel)]="filterByOption">
+  <mat-radio-group fxLayout="column" fxLayoutAlign="space-between start" [(ngModel)]="filterByOption" (change)="onRadioChanged()">
     <mat-radio-button value="none">None</mat-radio-button>
     <mat-radio-button value="businessUnit">Business Unit</mat-radio-button>
     <mat-radio-button value="location">Location</mat-radio-button>
