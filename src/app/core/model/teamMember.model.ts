@@ -20,3 +20,8 @@ export class TeamMemberExport {
     this.BusinessUnitName = businessUnitName;
   }
 }
+
+export interface OneToOneTeamMembers {
+  TeamMembersMeetings: TeamMember[];
+  TeamMembersNoMeetings: TeamMember[];
+}

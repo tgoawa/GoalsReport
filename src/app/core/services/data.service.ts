@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { catchError, retry, map } from 'rxjs/operators';
-import { GoalReport, OneToOneReport, SurveyDataObject, ChartObject } from '../model/goal-report.model';
+import { GoalReport, OneToOneReport, SurveyDataObject, ChartObject, OneToOneDTO } from '../model/goal-report.model';
 import { throwError } from '../../../../node_modules/rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
-import { TeamMember } from '../model/teamMember.model';
+import { TeamMember, OneToOneTeamMembers } from '../model/teamMember.model';
 import { LookUps, IBusinessUnits, ILocations } from '../model/lookup.model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { isNull } from 'util';
 
 const api = environment.envApi;
 @Injectable()
@@ -43,6 +42,14 @@ export class DataService {
         retry(3),
         catchError(this.handleError)
       );
+  }
+
+  getMeetingTeamMembers(oneToOneDTO: OneToOneDTO) {
+    return this.http.get<OneToOneTeamMembers>(api + 'GetMeetingTeamMembers/' + oneToOneDTO.month + '/' + oneToOneDTO.year)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
   }
 
   getNoGoalsTeamMembers() {

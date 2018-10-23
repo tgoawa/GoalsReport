@@ -1,30 +1,33 @@
-<div>
-  <h3>Filter by:</h3>
-  <mat-radio-group fxLayout="column" fxLayoutAlign="space-between start" [(ngModel)]="filterByOption" (change)="onRadioChanged()">
-    <mat-radio-button value="none">None</mat-radio-button>
-    <mat-radio-button value="businessUnit">Business Unit</mat-radio-button>
-    <mat-radio-button value="location">Location</mat-radio-button>
-  </mat-radio-group>
-  <div *ngIf="filterByOption !== 'none'">
-    <mat-form-field *ngIf="filterByOption === 'businessUnit'">
-      <mat-select placeholder="Business Unit" (selectionChange)="onBusinessUnitSelected($event)">
-        <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.BusinessUnitId">
-          {{businessUnit.Name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field *ngIf="filterByOption === 'location'">
-      <mat-select placeholder="Location" (selectionChange)="onLocationSelected($event)">
-        <mat-option *ngFor="let location of locations" [value]="location.LocationId">
-          {{location.Name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+<div fxLayout="column" fxLayoutAlign="space-between start">
+  <div>
+    <h2>{{title}}</h2>
+    <h3>Filter by:</h3>
+    <mat-radio-group fxLayout="column" fxLayoutAlign="start" [(ngModel)]="filterByOption" (change)="onRadioChanged()">
+      <mat-radio-button value="none">None</mat-radio-button>
+      <mat-radio-button value="businessUnit">Business Unit</mat-radio-button>
+      <mat-radio-button value="location">Location</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="filterByOption !== 'none'">
+      <mat-form-field *ngIf="filterByOption === 'businessUnit'">
+        <mat-select placeholder="Business Unit" (selectionChange)="onBusinessUnitSelected($event)">
+          <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.BusinessUnitId">
+            {{businessUnit.Name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="filterByOption === 'location'">
+        <mat-select placeholder="Location" (selectionChange)="onLocationSelected($event)">
+          <mat-option *ngFor="let location of locations" [value]="location.LocationId">
+            {{location.Name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
-</div>
-<div>
-  <button mat-button color="primary" (click)="onExportCSV()">Export to CSV</button>
-</div>
-<div fxLayout="row">
-  <app-team-member-table *ngIf="filteredTeamMemberList" [dataSource]="filteredTeamMemberList"></app-team-member-table>
+  <div>
+    <button mat-button color="primary" (click)="onExportCSV()">Export to CSV</button>
+  </div>
+  <div fxLayout="row">
+    <app-team-member-table *ngIf="filteredTeamMemberList" [dataSource]="filteredTeamMemberList"></app-team-member-table>
+  </div>
 </div>

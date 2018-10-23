@@ -6,6 +6,7 @@ import {
   ChartData,
   OneToOneDTO,
 } from '../core/model/goal-report.model';
+import { OneToOneTeamMembers } from '../core/model/teamMember.model';
 
 @Component({
   selector: 'app-one-to-one-data',
@@ -13,9 +14,12 @@ import {
   styleUrls: ['./one-to-one-data.component.css'],
 })
 export class OneToOneDataComponent implements OnInit {
+  createdMeetingTitle = 'Team Members that have created meetings this month';
+  didNotCreateMeetingTitle = 'Team Members that did not create meetings';
   oneToOneReportObject: OneToOneReport;
   chartData: HoursChartData[];
   months: number;
+  oneToOneTeammembers: OneToOneTeamMembers;
 
   constructor(private dataService: DataService) {}
 
@@ -42,8 +46,7 @@ export class OneToOneDataComponent implements OnInit {
     let tempData = [];
     tempData = event.name.split(' ');
     const oneToOneDTO = new OneToOneDTO(tempData[0], tempData[1]);
-
-
+    this.getOneToOneTeamMembers(oneToOneDTO);
   }
 
   private formatDataForGraph(reportObject: OneToOneReport) {
@@ -52,6 +55,15 @@ export class OneToOneDataComponent implements OnInit {
     } else {
       this.createChartDataObject(reportObject);
     }
+  }
+
+  private getOneToOneTeamMembers(oneToOneDTO: OneToOneDTO) {
+    this.dataService.getMeetingTeamMembers(oneToOneDTO)
+      .subscribe((data: OneToOneTeamMembers) => {
+        this.oneToOneTeammembers = data;
+      }, error => {
+        console.error(error);
+      });
   }
 
   private createChartDataObject(reportObject: OneToOneReport) {

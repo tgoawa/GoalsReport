@@ -15,4 +15,8 @@
   <div fxLayout="row" fxLayoutAlign="center center" fxFlex="50">
       <app-line-chart fxFlex="80" [data]="chartData" *ngIf="chartData?.length > 0"></app-line-chart>
   </div>
+  <div fxLayout="row" fxLayoutAlign="start start" *ngIf="oneToOneTeammembers">
+    <app-team-member-list [dataSource]="oneToOneTeammembers?.TeamMembersMeetings" [title]="createdMeetingTitle" fxFlex="50"></app-team-member-list>
+    <app-team-member-list [dataSource]="oneToOneTeammembers?.TeamMembersNoMeetings" [title]="didNotCreateMeetingTitle" fxFlex="50"></app-team-member-list>
+  </div>
 </div>
