@@ -26,6 +26,16 @@ export class ChartData {
   }
 }
 
+export class OneToOneDTO {
+  month: string;
+  year: number;
+
+  constructor(month: string, year: number) {
+    this.month = month;
+    this.year = year;
+  }
+}
+
 export class HoursChartData {
   name: string;
   series: ChartData[];

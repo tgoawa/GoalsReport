@@ -4,6 +4,7 @@ import {
   OneToOneReport,
   HoursChartData,
   ChartData,
+  OneToOneDTO,
 } from '../core/model/goal-report.model';
 
 @Component({
@@ -23,11 +24,6 @@ export class OneToOneDataComponent implements OnInit {
     this.getOneToOneReportData(this.months);
   }
 
-  onMonthChange() {
-    console.log(this.months);
-    this.getOneToOneReportData(this.months);
-  }
-
   getOneToOneReportData(totalMonths: number) {
     this.dataService
       .getOneToOneReportData(totalMonths)
@@ -35,6 +31,19 @@ export class OneToOneDataComponent implements OnInit {
         this.oneToOneReportObject = data;
         this.formatDataForGraph(this.oneToOneReportObject);
       });
+  }
+
+  onMonthChange() {
+    console.log(this.months);
+    this.getOneToOneReportData(this.months);
+  }
+
+  onSelect(event: ChartData) {
+    let tempData = [];
+    tempData = event.name.split(' ');
+    const oneToOneDTO = new OneToOneDTO(tempData[0], tempData[1]);
+
+
   }
 
   private formatDataForGraph(reportObject: OneToOneReport) {

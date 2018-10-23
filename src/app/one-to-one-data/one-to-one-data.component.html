@@ -9,7 +9,7 @@
     <button fxFlex="10" mat-raised-button color="primary" (click)="onMonthChange()">Update Search</button>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" fxFlex="50">
-    <app-grouped-bar-chart fxFlex="80" [data]="chartData" *ngIf="chartData?.length > 0"></app-grouped-bar-chart>
+    <app-grouped-bar-chart fxFlex="80" [data]="chartData" *ngIf="chartData?.length > 0" (drilldownData)="onSelect($event)"></app-grouped-bar-chart>
 
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" fxFlex="50">

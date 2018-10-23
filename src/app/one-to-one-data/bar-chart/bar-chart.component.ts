@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, EventEmitter, Output } from '@angular/core';
 import { ChartData } from 'src/app/core/model/goal-report.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { ChartData } from 'src/app/core/model/goal-report.model';
 })
 export class GroupedBarChartComponent implements OnChanges {
   @Input() data: ChartData[];
+  @Output() drilldownData: EventEmitter<ChartData> = new EventEmitter();
   chartData: ChartData[];
   // options
   showXAxis = true;
@@ -34,5 +35,9 @@ export class GroupedBarChartComponent implements OnChanges {
 
   ngOnChanges() {
     this.chartData = this.data;
+  }
+
+  onSelect(event) {
+    this.drilldownData.emit(event);
   }
 }
