@@ -14,7 +14,7 @@ import { OneToOneTeamMembers } from '../core/model/teamMember.model';
   styleUrls: ['./one-to-one-data.component.css'],
 })
 export class OneToOneDataComponent implements OnInit {
-  createdMeetingTitle = 'Team Members that have created meetings this month';
+  createdMeetingTitle = 'Team Members that have created meetings';
   didNotCreateMeetingTitle = 'Team Members that did not create meetings';
   oneToOneReportObject: OneToOneReport;
   chartData: HoursChartData[];
