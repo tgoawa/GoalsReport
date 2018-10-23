@@ -14,8 +14,8 @@ import { OneToOneTeamMembers } from '../core/model/teamMember.model';
   styleUrls: ['./one-to-one-data.component.css'],
 })
 export class OneToOneDataComponent implements OnInit {
-  createdMeetingTitle = 'Team Members that have created meetings';
-  didNotCreateMeetingTitle = 'Team Members that did not create meetings';
+  createdMeetingTitle = 'Team Members that have created meetings: ';
+  didNotCreateMeetingTitle = 'Team Members that did not create meetings: ';
   oneToOneReportObject: OneToOneReport;
   chartData: HoursChartData[];
   months: number;
@@ -61,6 +61,8 @@ export class OneToOneDataComponent implements OnInit {
     this.dataService.getMeetingTeamMembers(oneToOneDTO)
       .subscribe((data: OneToOneTeamMembers) => {
         this.oneToOneTeammembers = data;
+        this.createdMeetingTitle += oneToOneDTO.month + ' ' + oneToOneDTO.year;
+        this.didNotCreateMeetingTitle += oneToOneDTO.month + ' ' + oneToOneDTO.year;
       }, error => {
         console.error(error);
       });
